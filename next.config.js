@@ -2,7 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ["po3rin.com", "pon-blog-media.s3-ap-northeast-1.amazonaws.com"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'po3rin.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pon-blog-media.s3-ap-northeast-1.amazonaws.com',
+      },
+    ],
   },
   env: {
     BASE_URL:
