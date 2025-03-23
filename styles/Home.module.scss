@@ -1,0 +1,54 @@
+.container {
+  padding: 0px 0px 64px;
+}
+
+.top {
+  padding: 36px 0 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 30vh;
+
+  &_sns {
+    padding: 24px;
+    width: 140px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
+
+.title {
+  padding: 0 12px;
+  margin: 24px 0px;
+  background: linear-gradient(transparent 70%, var(--main-color) 0%);
+  font-size: 1.5rem;
+}
+
+.sub {
+  margin: 0px;
+  font-size: 0.9rem;
+}
+
+.btn {
+  margin: 12px auto;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .title {
+    font-size: 1.2rem;
+  }
+
+  .top {
+    height: 18vh;
+    padding-top: 96px;
+
+    &_sns {
+      padding: 16px;
+      width: 120px;
+    }
+  }
+}

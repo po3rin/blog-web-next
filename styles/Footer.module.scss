@@ -1,0 +1,18 @@
+.footer {
+  padding: 64px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--main-color);
+}
+
+.copyright {
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 640px) {
+  .footer {
+    padding: 12px;
+  }
+}

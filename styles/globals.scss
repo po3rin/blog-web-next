@@ -1,0 +1,59 @@
+// 変数
+$sec-color: #1d3152;
+$main-color: #00ffc4;
+
+:root {
+  --sec-color: #{$sec-color};
+  --main-color: #{$main-color};
+}
+
+// デフォルトスタイル
+html {
+  -webkit-font-smoothing: antialiased;
+  font-family: -apple-system, 'Segoe UI', 'Helvetica Neue',
+    'Hiragino Kaku Gothic ProN', メイリオ, meiryo, sans-serif;
+  font-family: sans-serif;
+  color: $sec-color;
+}
+
+h1 {
+  margin: 0;
+}
+
+body {
+  margin: 0px;
+  min-height: 100vh;
+}
+
+svg {
+  cursor: pointer;
+}
+
+a {
+  word-break: break-all;
+  color: inherit;
+  text-decoration: none;
+}
+
+// ボタンスタイル
+.btn {
+  margin: 24px;
+  padding: 12px;
+  width: 256px;
+  border-radius: 12px;
+  border: 1px $sec-color solid;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+// セクションタイトル
+.section_title {
+  display: inline-block;
+  padding: 0 12px;
+  margin: 24px auto;
+  background: linear-gradient(transparent 70%, $main-color 0%);
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 64px;
+}

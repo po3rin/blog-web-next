@@ -1,0 +1,61 @@
+.profile {
+  width: 380px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: auto;
+
+  &_name {
+    font-size: 1.4rem;
+    font-weight: 600;
+  }
+
+  &_body {
+    padding: 12px 0px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.8em;
+  }
+
+  &_skills {
+    font-size: 0.8rem;
+    font-weight: 600;
+    line-height: 1.8em;
+  }
+
+  &_media {
+    border-radius: 50%;
+    margin-right: 32px;
+  }
+}
+
+.line {
+  width: 128px;
+  border: 0.5px solid;
+  margin: 4px 0px;
+}
+
+.sns {
+  margin: auto;
+  padding: 12px;
+  width: 140px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media screen and (max-width: 640px) {
+  .profile {
+    width: 90%;
+
+    &_body {
+      font-size: 0.8rem;
+    }
+
+    &_media {
+      width: 90px;
+      border-radius: 50%;
+      margin-right: 16px;
+    }
+  }
+}
