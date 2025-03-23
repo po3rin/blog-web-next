@@ -40,40 +40,50 @@ export default function About() {
       img: "/images/book7.png",
       description:
         "第2章「Goとベイズ理論でシンプルな記事分類を実装してみよう！」を寄稿",
+      url: "https://example.com/gopher-2019-autumn",
     },
     {
       name: "Gopherの休日 2020冬",
       img: "/images/book8.png",
       description:
         "第4章「GoとコンセンサスアルゴリズムRaftによる分散システム構築入門」を寄稿",
+      url: "https://example.com/gopher-2020-winter",
     },
     {
       name: "Gopherの休日 2020夏",
       img: "/images/book9.jpeg",
       description:
         "第4章「Go+Burrows-Wheeler変換で入門する文字列解析の世界」を寄稿",
+      url: "https://example.com/gopher-2020-summer",
     },
     {
       name: "エムスリーテックブック5",
       img: "/images/techbook5.png",
       description:
         "第4章「検索エンジンにおけるReindex後の差分反映問題への挑戦」を寄稿",
+      url: "https://example.com/m3-techbook-5",
     },
     {
       name: "エムスリーテックブック6",
       img: "/images/techbook6.png",
       description:
         "第7章「LLM で作るテストコレクションで検索オフライン評価基盤を実現するための戦い」を寄稿",
+      url: "https://example.com/m3-techbook-6",
     },
     {
       name: "エムスリーテックブック7",
       img: "/images/techbook7.png",
       description:
         "第2章「Zoekt によるコード検索基盤開発と内部実装の読解」を寄稿",
+      url: "https://example.com/m3-techbook-7",
     },
   ];
 
   const handleRepoClick = (url) => {
+    window.open(url);
+  };
+
+  const handleBookClick = (url) => {
     window.open(url);
   };
 
@@ -115,7 +125,9 @@ export default function About() {
         <div className={styles.books}>
           {books.map((book) => (
             <div key={book.name} className={styles.book}>
-              <img width="160" src={book.img} alt={book.name} />
+              <a href={book.url} target="_blank" rel="noopener noreferrer">
+                <img width="160" src={book.img} alt={book.name} />
+              </a>
               <div className={styles.book_contents}>
                 <p className={styles.bold_txt}>{book.name}</p>
                 <div className={styles.line}></div>
