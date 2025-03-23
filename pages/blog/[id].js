@@ -130,7 +130,7 @@ export default function BlogPost({ post, relational }) {
 export async function getServerSideProps({ params }) {
   try {
     const baseUrl = process.env.NODE_ENV === 'production'
-      ? 'https://po3rin.com'
+      ? process.env.API_BASE_URL
       : 'http://localhost:8080';
     
     // 記事の詳細を取得

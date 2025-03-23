@@ -83,7 +83,7 @@ export async function getServerSideProps({ query }) {
   try {
     const baseUrl =
       process.env.NODE_ENV === "production"
-        ? "https://po3rin.com"
+        ? process.env.API_BASE_URL
         : "http://localhost:8080";
 
     let url = `${baseUrl}/api/v1/post?size=${pageSize}`;
