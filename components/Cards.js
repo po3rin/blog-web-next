@@ -1,11 +1,11 @@
-import { useRouter } from 'next/router';
-import styles from '../styles/Cards.module.scss';
+import { useRouter } from "next/router";
+import styles from "../styles/Cards.module.scss";
 
 export default function Cards({ blogs }) {
   const router = useRouter();
 
   const formatDate = (dateString) => {
-    return dateString.split('T')[0].split('-').join(' / ');
+    return dateString.split("T")[0].split("-").join(" / ");
   };
 
   const handleClick = (id) => {
@@ -29,7 +29,7 @@ export default function Cards({ blogs }) {
             <p className={styles.card_description}>{blog.description}</p>
           </div>
           <p className={styles.card_date}>{formatDate(blog.created_at)}</p>
-          <p className={styles.card_tags}>{blog.tags.join(' / ')}</p>
+          <p className={styles.card_tags}>{blog.tags.join(" / ")}</p>
         </div>
       ))}
     </div>

@@ -1,7 +1,7 @@
-import Image from 'next/image';
-import Twitter from './sns/Twitter';
-import GitHub from './sns/GitHub';
-import styles from '../styles/Profile.module.scss';
+import Image from "next/image";
+import Twitter from "./sns/Twitter";
+import GitHub from "./sns/GitHub";
+import styles from "../styles/Profile.module.scss";
 
 export default function Profile() {
   return (
@@ -21,10 +21,11 @@ export default function Profile() {
           <p className={styles.profile_name}>pon</p>
           <div className={styles.line}></div>
           <p className={styles.profile_body}>
-            エンジニア8年目です。GoとPythonをよく書きます。情報検索が好き。
+            エンジニア8年目です。ソフトウェアエンジニア/データエンジニア/検索エンジニア的な働き方。GoとPythonをよく書きます。情報検索が好き。
           </p>
           <p className={styles.profile_skills}>
-            Go / Python / Kubernetes / AWS / Google Cloud / Elasticsearch / NLP
+            Go / Python / Rust / AWS / Google Cloud / Elasticsearch / Kubernetes
+            / Vim
           </p>
         </div>
       </div>

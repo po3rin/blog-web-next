@@ -1,5 +1,5 @@
-import Profile from './Profile';
-import styles from '../styles/Footer.module.scss';
+import Profile from "./Profile";
+import styles from "../styles/Footer.module.scss";
 
 export default function Footer() {
   return (

@@ -2,15 +2,16 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['po3rin.com', 'pon-blog-media.s3-ap-northeast-1.amazonaws.com'],
+    domains: ["po3rin.com", "pon-blog-media.s3-ap-northeast-1.amazonaws.com"],
   },
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: process.env.NODE_ENV === 'production'
-          ? `${process.env.API_BASE_URL}/api/:path*`
-          : 'http://localhost:8080/api/:path*',
+        source: "/api/:path*",
+        destination:
+          process.env.NODE_ENV === "production"
+            ? `${process.env.API_BASE_URL}/api/:path*`
+            : "http://localhost:8080/api/:path*",
       },
     ];
   },

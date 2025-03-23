@@ -40,42 +40,42 @@ export default function About() {
       img: "/images/book7.png",
       description:
         "第2章「Goとベイズ理論でシンプルな記事分類を実装してみよう！」を寄稿",
-      url: "https://example.com/gopher-2019-autumn",
+      url: "https://techbookfest.org/product/5674890539565056",
     },
     {
       name: "Gopherの休日 2020冬",
       img: "/images/book8.png",
       description:
         "第4章「GoとコンセンサスアルゴリズムRaftによる分散システム構築入門」を寄稿",
-      url: "https://example.com/gopher-2020-winter",
+      url: "https://techbookfest.org/product/6332688805920768",
     },
     {
       name: "Gopherの休日 2020夏",
       img: "/images/book9.jpeg",
       description:
         "第4章「Go+Burrows-Wheeler変換で入門する文字列解析の世界」を寄稿",
-      url: "https://example.com/gopher-2020-summer",
+      url: "https://techbookfest.org/product/5139800384339968?productVariantID=5112838318194688",
     },
     {
       name: "エムスリーテックブック5",
       img: "/images/techbook5.png",
       description:
         "第4章「検索エンジンにおけるReindex後の差分反映問題への挑戦」を寄稿",
-      url: "https://example.com/m3-techbook-5",
+      url: "https://techbookfest.org/product/rpXewXTtekXgNPFBCWLrX4?productVariantID=nrAyYa0LsLwUZUk5Qee80X",
     },
     {
       name: "エムスリーテックブック6",
       img: "/images/techbook6.png",
       description:
         "第7章「LLM で作るテストコレクションで検索オフライン評価基盤を実現するための戦い」を寄稿",
-      url: "https://example.com/m3-techbook-6",
+      url: "https://techbookfest.org/product/1Awt0K23ct4LJQxFz6mQP1?productVariantID=ixQgNDGyL4gL3DD7CxYviw",
     },
     {
       name: "エムスリーテックブック7",
       img: "/images/techbook7.png",
       description:
         "第2章「Zoekt によるコード検索基盤開発と内部実装の読解」を寄稿",
-      url: "https://example.com/m3-techbook-7",
+      url: "https://techbookfest.org/product/g2gqKCQ96newVVkru0YgAm?productVariantID=rVnrwrVH1qJWm0qxss1Vpd",
     },
   ];
 
