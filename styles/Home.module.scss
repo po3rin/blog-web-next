@@ -33,8 +33,14 @@
 }
 
 .btn {
-  margin: 12px auto;
+  margin: 24px auto;
+  padding: 12px;
+  width: 256px;
+  border-radius: 12px;
+  border: 1px var(--sec-color) solid;
+  text-align: center;
   cursor: pointer;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 640px) {

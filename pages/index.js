@@ -41,7 +41,7 @@ export default function Home({ blogs }) {
 export async function getServerSideProps() {
   try {
     const baseUrl = process.env.NODE_ENV === 'production'
-      ? 'https://po3rin.com'
+      ? 'https://blog-api-420633281371.asia-northeast1.run.app'
       : 'http://localhost:8080';
     
     const res = await axios.get(`${baseUrl}/api/v1/post?size=6`);
