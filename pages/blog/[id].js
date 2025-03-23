@@ -129,12 +129,8 @@ export default function BlogPost({ post, relational }) {
 
 export async function getServerSideProps({ params }) {
   try {
-    const baseUrl = process.env.NODE_ENV === 'production'
-      ? process.env.API_BASE_URL
-      : 'http://localhost:8080';
-    
     // 記事の詳細を取得
-    const res = await axios.get(`${baseUrl}/api/v1/post/${params.id}`);
+    const res = await axios.get(`${process.env.BASE_URL}/api/v1/post/${params.id}`);
     const post = res.data.data;
     
     // 関連記事を取得
@@ -143,7 +139,7 @@ export async function getServerSideProps({ params }) {
       tagsQuery = `&tags=${post.tags.join(',')}`;
     }
     
-    const relationalRes = await axios.get(`${baseUrl}/api/v1/post?size=3${tagsQuery}`);
+    const relationalRes = await axios.get(`${process.env.BASE_URL}/api/v1/post?size=3${tagsQuery}`);
     const relational = relationalRes.data.data.filter(d => d.id !== params.id);
     
     return {

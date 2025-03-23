@@ -42,12 +42,7 @@ export default function Home({ blogs }) {
 
 export async function getServerSideProps() {
   try {
-    const baseUrl =
-      process.env.NODE_ENV === "production"
-        ? process.env.API_BASE_URL
-        : "http://localhost:8080";
-
-    const res = await axios.get(`${baseUrl}/api/v1/post?size=6`);
+    const res = await axios.get(`${process.env.BASE_URL}/api/v1/post?size=6`);
 
     return {
       props: {

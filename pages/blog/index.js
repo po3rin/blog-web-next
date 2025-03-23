@@ -81,12 +81,7 @@ export async function getServerSideProps({ query }) {
   const pageSize = 6;
 
   try {
-    const baseUrl =
-      process.env.NODE_ENV === "production"
-        ? process.env.API_BASE_URL
-        : "http://localhost:8080";
-
-    let url = `${baseUrl}/api/v1/post?size=${pageSize}`;
+    let url = `${process.env.BASE_URL}/api/v1/post?size=${pageSize}`;
 
     if (tags) {
       url += `&tags=${tags}`;
