@@ -9,7 +9,7 @@ const nextConfig = {
       {
         source: '/api/:path*',
         destination: process.env.NODE_ENV === 'production'
-          ? 'https://blog-api-420633281371.asia-northeast1.run.app/api/:path*'
+          ? `${process.env.API_BASE_URL || 'https://blog-api-420633281371.asia-northeast1.run.app'}/api/:path*`
           : 'http://localhost:8080/api/:path*',
       },
     ];
