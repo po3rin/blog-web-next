@@ -4,6 +4,12 @@ const nextConfig = {
   images: {
     domains: ["po3rin.com", "pon-blog-media.s3-ap-northeast-1.amazonaws.com"],
   },
+  env: {
+    BASE_URL:
+      process.env.NODE_ENV === "production"
+        ? process.env.API_BASE_URL
+        : "http://localhost:8080",
+  },
   async rewrites() {
     return [
       {
