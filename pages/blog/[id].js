@@ -57,7 +57,14 @@ export default function BlogPost({ post, relational }) {
         return defaultRender(tokens, idx, options, env, self);
       };
       
-      const content = post.body.split('---')[2] || post.body;
+      // Frontmatterの処理を改善
+      let content = post.body;
+      const parts = content.split('---');
+      if (parts.length >= 3) {
+        // Frontmatterがある場合は3番目の部分（インデックス2）を使用
+        content = parts.slice(2).join('---');
+      }
+      
       return { __html: md.render(content) };
     } catch (error) {
       console.error('Markdown rendering error:', error);
