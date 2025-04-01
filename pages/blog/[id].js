@@ -139,10 +139,14 @@ export default function BlogPost({ post, relational }) {
             </div>
           </div>
         </div>
-        <div className={styles.more}>
-          <p className={styles.section_title}>🔍 more !!</p>
-        </div>
-        <Cards blogs={relational} />
+        {relational && relational.length > 0 && (
+          <>
+            <div className={styles.more}>
+              <p className={styles.section_title}>🔍 more !!</p>
+            </div>
+            <Cards blogs={relational} />
+          </>
+        )}
       </section>
     </Layout>
   );
