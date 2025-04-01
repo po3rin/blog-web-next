@@ -12,7 +12,7 @@ export default function BlogPost({ post, relational }) {
 
   useEffect(() => {
     // Prismを使用してコードハイライトを適用
-    if (typeof window !== 'undefined') {
+    if (typeof window !== 'undefined' && post) {
       const Prism = require('prismjs');
       require('prismjs/components/prism-go');
       require('prismjs/components/prism-javascript');
@@ -26,7 +26,7 @@ export default function BlogPost({ post, relational }) {
       require('prismjs/components/prism-java');
       Prism.highlightAll();
     }
-  }, [post]);
+  }, [post, router.asPath]);
 
   const formatDate = (dateString) => {
     return dateString.split('T')[0].split('-').join(' / ');
@@ -42,22 +42,27 @@ export default function BlogPost({ post, relational }) {
 
   // Markdownをレンダリングする関数
   const renderMarkdown = () => {
-    if (typeof window === 'undefined') return { __html: '' };
+    if (typeof window === 'undefined' || !post || !post.body) return { __html: '' };
     
-    const MarkdownIt = require('markdown-it');
-    const md = new MarkdownIt();
-    
-    // 画像にlazy属性を追加
-    const defaultRender = md.renderer.rules.image || function(tokens, idx, options, env, self) {
-      return self.renderToken(tokens, idx, options);
-    };
-    md.renderer.rules.image = function(tokens, idx, options, env, self) {
-      tokens[idx].attrPush(['loading', 'lazy']);
-      return defaultRender(tokens, idx, options, env, self);
-    };
-    
-    const content = post.body.split('---')[2] || post.body;
-    return { __html: md.render(content) };
+    try {
+      const MarkdownIt = require('markdown-it');
+      const md = new MarkdownIt();
+      
+      // 画像にlazy属性を追加
+      const defaultRender = md.renderer.rules.image || function(tokens, idx, options, env, self) {
+        return self.renderToken(tokens, idx, options);
+      };
+      md.renderer.rules.image = function(tokens, idx, options, env, self) {
+        tokens[idx].attrPush(['loading', 'lazy']);
+        return defaultRender(tokens, idx, options, env, self);
+      };
+      
+      const content = post.body.split('---')[2] || post.body;
+      return { __html: md.render(content) };
+    } catch (error) {
+      console.error('Markdown rendering error:', error);
+      return { __html: '<p>記事の読み込みに失敗しました。</p>' };
+    }
   };
 
   if (router.isFallback) {
