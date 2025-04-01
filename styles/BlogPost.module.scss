@@ -67,6 +67,10 @@
   a {
     color: var(--sec-color);
     word-break: break-all;
+    text-decoration: underline;
+    text-decoration-color: var(--main-color);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 2px;
   }
 
   // ------------------------
