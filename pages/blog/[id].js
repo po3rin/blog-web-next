@@ -42,10 +42,19 @@ export default function BlogPost({ post, relational }) {
 
   // Markdownをレンダリングする関数
   const renderMarkdown = () => {
-    if (typeof window === 'undefined' || !post || !post.body) return { __html: '' };
+    if (!post || !post.body) return { __html: '' };
     
     try {
-      const MarkdownIt = require('markdown-it');
+      // サーバーサイドとクライアントサイドの両方で動作するように修正
+      let MarkdownIt;
+      if (typeof window === 'undefined') {
+        // サーバーサイド
+        MarkdownIt = require('markdown-it');
+      } else {
+        // クライアントサイド
+        MarkdownIt = require('markdown-it');
+      }
+      
       const md = new MarkdownIt();
       
       // 画像にlazy属性を追加
@@ -116,7 +125,7 @@ export default function BlogPost({ post, relational }) {
         </div>
 
         <div className={styles.post}>
-          <div dangerouslySetInnerHTML={renderMarkdown()} />
+          <div dangerouslySetInnerHTML={post.renderedHTML ? { __html: post.renderedHTML } : renderMarkdown()} />
           <div className={styles.footer}>
             <div className={styles.footer_tags}>
               {post.tags.map((tag, i) => (
@@ -153,6 +162,28 @@ export async function getServerSideProps({ params }) {
     
     const relationalRes = await axios.get(`${process.env.BASE_URL}/api/v1/post?size=3${tagsQuery}`);
     const relational = relationalRes.data.data.filter(d => d.id !== params.id);
+    
+    // サーバーサイドでHTMLを生成しておく
+    let renderedHTML = '';
+    try {
+      const MarkdownIt = require('markdown-it');
+      const md = new MarkdownIt();
+      
+      // Frontmatterの処理
+      let content = post.body;
+      const parts = content.split('---');
+      if (parts.length >= 3) {
+        content = parts.slice(2).join('---');
+      }
+      
+      renderedHTML = md.render(content);
+    } catch (error) {
+      console.error('Server-side markdown rendering error:', error);
+      renderedHTML = '<p>記事の読み込みに失敗しました。</p>';
+    }
+    
+    // postオブジェクトにHTMLを追加
+    post.renderedHTML = renderedHTML;
     
     return {
       props: {
